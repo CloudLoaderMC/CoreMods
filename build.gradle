@@ -81,11 +81,11 @@ ext.sharedManifest = manifest {
                 'Specification-Vendor': 'forge',
                 'Specification-Version': '1', // Currently version 1 of the coremod specification
                 'Implementation-Title': project.name,
-                'Implementation-Version': "${project.version}+${System.getenv('BUILD_NUMBER')?:0}+${gradleutils.gitInfo.branch}.${gradleutils.gitInfo.abbreviatedId}",
+                'Implementation-Version': "${project.version}+${System.getenv('BUILD_NUMBER')?:0}+${gradleutils.gitInfo.branch != null ? gradleutils.gitInfo.branch : "master"}.${gradleutils.gitInfo.abbreviatedId}",
                 'Implementation-Vendor' :'forge',
                 'Implementation-Timestamp': java.time.Instant.now().toString(),
                 'Git-Commit': gradleutils.gitInfo.abbreviatedId,
-                'Git-Branch': gradleutils.gitInfo.branch,
+                'Git-Branch': gradleutils.gitInfo.branch != null ? gradleutils.gitInfo.branch : "master",
                 'Build-Number': "${System.getenv("BUILD_NUMBER")?:0}"],
             'net/minecraftforge/coremod/')
 }
