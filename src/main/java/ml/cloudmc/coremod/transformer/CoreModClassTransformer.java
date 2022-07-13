@@ -1,7 +1,7 @@
-package net.minecraftforge.coremod.transformer;
+package ml.cloudmc.coremod.transformer;
 
 import cpw.mods.modlauncher.api.ITransformer;
-import net.minecraftforge.coremod.CoreMod;
+import ml.cloudmc.coremod.CoreMod;
 import org.objectweb.asm.tree.ClassNode;
 
 import java.util.Set;

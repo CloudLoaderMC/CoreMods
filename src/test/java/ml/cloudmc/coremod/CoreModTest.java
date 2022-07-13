@@ -1,4 +1,4 @@
-package net.minecraftforge.coremod;
+package ml.cloudmc.coremod;
 
 import cpw.mods.modlauncher.api.*;
 import org.junit.jupiter.api.*;

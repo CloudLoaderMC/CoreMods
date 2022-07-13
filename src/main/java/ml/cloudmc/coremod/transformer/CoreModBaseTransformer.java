@@ -1,10 +1,10 @@
-package net.minecraftforge.coremod.transformer;
+package ml.cloudmc.coremod.transformer;
 
 import cpw.mods.modlauncher.api.ITransformer;
 import cpw.mods.modlauncher.api.ITransformerVotingContext;
 import cpw.mods.modlauncher.api.TransformerVoteResult;
-import net.minecraftforge.coremod.CoreMod;
-import net.minecraftforge.coremod.CoreModTracker;
+import ml.cloudmc.coremod.CoreMod;
+import ml.cloudmc.coremod.CoreModTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Marker;

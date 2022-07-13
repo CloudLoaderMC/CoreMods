@@ -1,4 +1,4 @@
-package net.minecraftforge.coremod;
+package ml.cloudmc.coremod;
 
 import org.jetbrains.annotations.Nullable;
 

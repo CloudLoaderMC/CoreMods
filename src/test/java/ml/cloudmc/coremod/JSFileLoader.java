@@ -1,6 +1,6 @@
-package net.minecraftforge.coremod;
+package ml.cloudmc.coremod;
 
-import net.minecraftforge.forgespi.coremod.ICoreModFile;
+import ml.cloudmc.cloudspi.coremod.ICoreModFile;
 
 import java.io.IOException;
 import java.io.Reader;

@@ -1,6 +1,8 @@
+import ml.darubyminer360.gradleutils.GradleUtils
+
 plugins {
     id 'com.github.ben-manes.versions' version '0.39.0'
-    id 'ml.darubyminer360.gradleutils' version 'main-SNAPSHOT'
+    id 'ml.darubyminer360.gradleutils' version '2.2.0'
     id 'org.javamodularity.moduleplugin' version '1.8.7' apply false
 }
 
@@ -9,7 +11,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 apply plugin: 'org.javamodularity.moduleplugin'
 
-group 'net.minecraftforge'
+group 'ml.cloudmc'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
@@ -44,10 +46,13 @@ compileTestJava {
 repositories {
     mavenCentral()
     maven {
+        name = 'Cloud'
+        url = 'https://maven.cloudmc.ml/releases'
+    }
+    maven {
         name = 'forge'
         url = 'https://maven.minecraftforge.net'
     }
-    maven { url = 'https://jitpack.io' }
 }
 
 sourceSets {
@@ -72,22 +77,22 @@ dependencies {
     implementation("org.ow2.asm:asm-commons:${ASM_VERSION}")
     implementation("org.ow2.asm:asm-tree:${ASM_VERSION}")
     implementation("org.ow2.asm:asm-util:${ASM_VERSION}")
-    implementation('com.github.CloudLoaderMC:CloudSPI:6.2')
+    implementation('ml.cloudmc:CloudSPI:6.4.0')
     implementation('org.openjdk.nashorn:nashorn-core:15.1.1')
 }
 
 ext.sharedManifest = manifest {
-    attributes(['Specification-Title': 'coremods',
-                'Specification-Vendor': 'forge',
+    attributes(['Specification-Title': 'CoreMods',
+                'Specification-Vendor': 'Cloud',
                 'Specification-Version': '1', // Currently version 1 of the coremod specification
                 'Implementation-Title': project.name,
                 'Implementation-Version': "${project.version}+${System.getenv('BUILD_NUMBER')?:0}+${gradleutils.gitInfo.branch != null ? gradleutils.gitInfo.branch : "master"}.${gradleutils.gitInfo.abbreviatedId}",
-                'Implementation-Vendor' :'forge',
+                'Implementation-Vendor' :'Cloud',
                 'Implementation-Timestamp': java.time.Instant.now().toString(),
                 'Git-Commit': gradleutils.gitInfo.abbreviatedId,
                 'Git-Branch': gradleutils.gitInfo.branch != null ? gradleutils.gitInfo.branch : "master",
                 'Build-Number': "${System.getenv("BUILD_NUMBER")?:0}"],
-            'net/minecraftforge/coremod/')
+            'ml/cloudmc/coremod/')
 }
 
 jar {
@@ -106,29 +111,29 @@ artifacts {
     archives sourcesJar
 }
 
-publishing {
+/*publishing {
     publications {
         mavenJava(MavenPublication) {
+            from components.java
+            artifact sourcesJar
             pom {
-                from components.java
-                artifact sourcesJar
-                name = 'Core Mods'
-                description = 'Core modding framework for use with Cloud'
-                url = 'https://github.com/CloudLoaderMC/coremods'
+                name = 'Cloud Service Provider Interface'
+                description = 'API for services which can plug into Cloud, or which are used by Cloud in other places'
+                url = 'https://github.com/CloudLoaderMC/CloudSPI'
                 scm {
-                    url = 'https://github.com/CloudLoaderMC/coremods'
-                    connection = 'scm:git:git://github.com/CloudLoaderMC/coremods.git'
-                    developerConnection = 'scm:git:git@github.com:CloudLoaderMC/coremods.git'
+                    url = 'https://github.com/CloudLoaderMC/CloudSPI'
+                    connection = 'scm:git:git://github.com/CloudLoaderMC/CloudSPI.git'
+                    developerConnection = 'scm:git:git@github.com:CloudLoaderMC/CloudSPI.git'
                 }
                 issueManagement {
                     system = 'github'
-                    url = 'https://github.com/CloudLoaderMC/coremods/issues'
+                    url = 'https://github.com/CloudLoaderMC/CloudSPI/issues'
                 }
 
                 licenses {
                     license {
-                        name = 'LGPLv2.1'
-                        url = 'https://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt'
+                        name = 'Apache 2.0'
+                        url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
                     }
                 }
 
@@ -140,5 +145,47 @@ publishing {
                 }
             }
         }
+    }
+    repositories {
+        maven GradleUtils.getPublishingCloudMaven(project)
+    }
+}*/
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            pom {
+                from components.java
+                artifact sourcesJar
+                name = 'Core Mods'
+                description = 'Core modding framework for use with Cloud'
+                url = 'https://github.com/CloudLoaderMC/CoreMods'
+                scm {
+                    url = 'https://github.com/CloudLoaderMC/CoreMods'
+                    connection = 'scm:git:git://github.com/CloudLoaderMC/CoreMods.git'
+                    developerConnection = 'scm:git:git@github.com:CloudLoaderMC/CoreMods.git'
+                }
+                issueManagement {
+                    system = 'github'
+                    url = 'https://github.com/CloudLoaderMC/CoreMods/issues'
+                }
+
+                licenses {
+                    license {
+                        name = 'Apache 2.0'
+                        url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'DaRubyMiner360'
+                        name = 'DaRubyMiner360'
+                    }
+                }
+            }
+        }
+    }
+    repositories {
+        maven GradleUtils.getPublishingCloudMaven(project)
     }
 }

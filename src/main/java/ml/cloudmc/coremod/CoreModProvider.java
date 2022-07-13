@@ -1,7 +1,7 @@
-package net.minecraftforge.coremod;
+package ml.cloudmc.coremod;
 
 import cpw.mods.modlauncher.api.*;
-import net.minecraftforge.forgespi.coremod.*;
+import ml.cloudmc.cloudspi.coremod.*;
 
 import java.util.*;
 
