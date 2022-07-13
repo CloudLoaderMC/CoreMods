@@ -1,8 +1,8 @@
-package ml.cloudmc.coremod.api;
+package net.minecraftforge.coremod.api;
 
 import cpw.mods.modlauncher.Launcher;
 import cpw.mods.modlauncher.api.INameMappingService;
-import ml.cloudmc.coremod.CoreModTracker;
+import net.minecraftforge.coremod.CoreModTracker;
 import org.jetbrains.annotations.Nullable;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;

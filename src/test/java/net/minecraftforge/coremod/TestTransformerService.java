@@ -1,4 +1,4 @@
-package ml.cloudmc.coremod;
+package net.minecraftforge.coremod;
 
 import cpw.mods.modlauncher.api.IEnvironment;
 import cpw.mods.modlauncher.api.ITransformationService;

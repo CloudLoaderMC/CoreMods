@@ -1,4 +1,4 @@
-library 'cloud-shared-library'
+library 'forge-shared-library'
 
 pipeline {
     agent {

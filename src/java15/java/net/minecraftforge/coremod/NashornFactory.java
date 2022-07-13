@@ -1,4 +1,4 @@
-package ml.cloudmc.coremod;
+package net.minecraftforge.coremod;
 
 import java.util.function.Function;
 

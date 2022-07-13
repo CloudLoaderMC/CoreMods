@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <name>CloudLoaderMC_CoreMods Config DSL Script</name>
-  <groupId>CloudLoaderMC_CoreMods</groupId>
-  <artifactId>CloudLoaderMC_CoreMods_dsl</artifactId>
+  <name>MinecraftForge_coremods Config DSL Script</name>
+  <groupId>MinecraftForge_coremods</groupId>
+  <artifactId>MinecraftForge_coremods_dsl</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <parent>

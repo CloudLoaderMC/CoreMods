@@ -1,7 +1,7 @@
-package ml.cloudmc.coremod;
+package net.minecraftforge.coremod;
 
 import cpw.mods.modlauncher.api.*;
-import ml.cloudmc.cloudspi.coremod.*;
+import net.minecraftforge.forgespi.coremod.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Marker;
@@ -21,7 +21,7 @@ public class CoreModEngine {
             "org.objectweb.asm.util" // ASM util has nice debugging things like Trace visitors
     ));
     static final Set<String> ALLOWED_CLASSES = new HashSet<>(Arrays.asList(
-            "ml.cloudmc.coremod.api.ASMAPI","org.objectweb.asm.Opcodes",
+            "net.minecraftforge.coremod.api.ASMAPI","org.objectweb.asm.Opcodes",
 
             // Editing the code of methods
             "org.objectweb.asm.tree.AbstractInsnNode","org.objectweb.asm.tree.FieldInsnNode",

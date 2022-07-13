@@ -1,11 +1,15 @@
 pluginManagement {
     repositories {
         gradlePluginPortal()
-        maven {
-            name = 'Cloud'
-            url = 'https://maven.cloudmc.ml/releases/'
-        }
+        maven { url = 'https://jitpack.io' }
         maven { url = 'https://maven.minecraftforge.net/' }
     }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == 'ml.darubyminer360.gradleutils') {
+                useModule("com.github.CloudLoaderMC:GradleUtils:main-SNAPSHOT")
+            }
+        }
+    }
 }
-rootProject.name='CoreMods'
+rootProject.name='coremods'
